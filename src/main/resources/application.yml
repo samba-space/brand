@@ -8,23 +8,8 @@ spring:
     console:
       enabled: true
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:brand;MODE=MySQL
-    username: sa
-    password:
-  jpa:
-    defer-datasource-initialization: true
-    open-in-view: false
-
----
-# 개발 환경 설정
-spring:
-  config:
-    activate:
-      on-profile: "dev"
-  datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://my-aurora.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/mydatabase
+    url: jdbc:mysql://product.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
     username: admin
     password: qudtjf12?!
   jpa:
