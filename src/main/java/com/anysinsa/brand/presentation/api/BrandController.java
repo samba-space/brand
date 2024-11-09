@@ -1,15 +1,13 @@
 package com.anysinsa.brand.presentation.api;
 
-import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anysinsa.brand.application.BrandService;
-import com.anysinsa.brand.application.dto.BrandSaveRequest;
+import com.anysinsa.brand.domain.Brand;
 
 @RestController
 public class BrandController {
@@ -19,10 +17,8 @@ public class BrandController {
         this.brandService = brandService;
     }
 
-    @PostMapping(path = "/api/v1/brands")
-    public ResponseEntity<Void> saveBrand(@RequestBody @Validated BrandSaveRequest request) {
-        Long saveBrandId = brandService.saveBrand(request);
-        return ResponseEntity.created(URI.create(String.format("/api/v1/brands/%d", saveBrandId)))
-                .build();
+    @GetMapping(path = "/api/v1/brands")
+    public ResponseEntity<List<Brand>> findBrands() {
+        return ResponseEntity.ok().body(brandService.findBrands());
     }
 }
