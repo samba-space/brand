@@ -447,31 +447,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_성공_데이터가_존재할_경우">성공: 데이터가 존재할 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/category-lowest-prices HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-category-lowest-prices_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 138
-
-{
-  "categoryPrices" : [ {
-    "categoryName" : "CATEGORY_A",
-    "brandName" : "BRAND_A",
-    "price" : 100
-  } ],
-  "totalPrice" : 100
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-category-lowest-prices_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -479,27 +462,14 @@ Content-Length: 138
 <h3 id="_성공_데이터가_존재하지_않을_경우">성공: 데이터가 존재하지 않을 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/category-lowest-prices HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-category-lowest-prices_-when-data-not-exist_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 48
-
-{
-  "categoryPrices" : [ ],
-  "totalPrice" : 0
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-category-lowest-prices_-when-data-not-exist_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -512,33 +482,14 @@ Content-Length: 48
 <h3 id="_성공_데이터가_존재할_경우_2">성공: 데이터가 존재할 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_2_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/lowest-total-brand-price HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-lowest-total-brand-price_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_2_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 168
-
-{
-  "lowestPrice" : {
-    "brandName" : "BRAND_A",
-    "categories" : [ {
-      "categoryName" : "CATEGORY_A",
-      "price" : 100
-    } ],
-    "totalPrice" : 100
-  }
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-lowest-total-brand-price_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -546,30 +497,14 @@ Content-Length: 168
 <h3 id="_성공_데이터가_존재하지_않을_경우_2">성공: 데이터가 존재하지 않을 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_2_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/lowest-total-brand-price HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-lowest-total-brand-price_-when-data-not-exist_-should-return-empty</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_2_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 96
-
-{
-  "lowestPrice" : {
-    "brandName" : null,
-    "categories" : [ ],
-    "totalPrice" : 0
-  }
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-lowest-total-brand-price_-when-data-not-exist_-should-return-empty</p>
 </div>
 </div>
 </div>
@@ -582,34 +517,14 @@ Content-Length: 96
 <h3 id="_성공_데이터가_존재할_경우_3">성공: 데이터가 존재할 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_3_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/category-lowest-highest-prices?categoryName=CATEGORY_A HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재할_경우_3_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 199
-
-{
-  "categoryName" : "CATEGORY_A",
-  "lowestBrandPrices" : [ {
-    "brandName" : "BRAND_A",
-    "price" : 10
-  } ],
-  "highestBrandPrices" : [ {
-    "brandName" : "BRAND_B",
-    "price" : 100
-  } ]
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-data-exist_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -617,28 +532,14 @@ Content-Length: 199
 <h3 id="_성공_데이터가_존재하지_않을_경우_3">성공: 데이터가 존재하지 않을 경우</h3>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_3_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/category-lowest-highest-prices?categoryName=CATEGORY_A HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-data-not-exist_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_성공_데이터가_존재하지_않을_경우_3_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 94
-
-{
-  "categoryName" : "CATEGORY_A",
-  "lowestBrandPrices" : [ ],
-  "highestBrandPrices" : [ ]
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-data-not-exist_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -646,20 +547,14 @@ Content-Length: 94
 <h3 id="_실패_request가_invalid한_경우">실패: request가 invalid한 경우</h3>
 <div class="sect3">
 <h4 id="_실패_request가_invalid한_경우_http_request">HTTP request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/products/category-lowest-highest-prices?categoryName= HTTP/1.1
-Accept: application/json
-Host: localhost:8080</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-request not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-category-name-null-or-empty_-should-return-data</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_실패_request가_invalid한_경우_http_response">HTTP response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request</code></pre>
-</div>
+<div class="paragraph">
+<p>Snippet http-response not found for operation::product-query-controller-unit-test/get-lowest-and-highest-prices-by-category-name_-when-category-name-null-or-empty_-should-return-data</p>
 </div>
 </div>
 </div>
@@ -669,7 +564,7 @@ Host: localhost:8080</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2024-06-04 22:49:41 +0900
+Last updated 2024-10-05 21:14:55 +0900
 </div>
 </div>
 </body>

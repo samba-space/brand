@@ -1,15 +1,15 @@
 server:
-  port: 8080  # 공통 포트 설정
+  port: 8082
 
 spring:
   application:
-    name: product
+    name: brand
   h2:
     console:
       enabled: true
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:product;MODE=MySQL
+    url: jdbc:h2:mem:brand;MODE=MySQL
     username: sa
     password:
   jpa:

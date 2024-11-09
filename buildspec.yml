@@ -4,7 +4,7 @@ env:
   variables:
     AWS_ACCOUNT_ID: 026090537156
     AWS_DEFAULT_REGION: ap-northeast-2
-    IMAGE_REPO_NAME: anysinsa/product
+    IMAGE_REPO_NAME: anysinsa/brand
     IMAGE_TAG: latest
 
 phases:
@@ -31,7 +31,7 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - docker push $REPOSITORY_URI:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"product-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"brand-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
     - appspec.yml

@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition: "arn:aws:ecs:ap-northeast-2:026090537156:task-definition/product-service-task"
         LoadBalancerInfo:
-          ContainerName: "product-container"
-          ContainerPort: 8080
+          ContainerName: "brand-container"
+          ContainerPort: 8082
