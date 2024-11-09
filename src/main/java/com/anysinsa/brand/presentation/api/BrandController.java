@@ -21,4 +21,9 @@ public class BrandController {
     public ResponseEntity<List<Brand>> findBrands() {
         return ResponseEntity.ok().body(brandService.findBrands());
     }
+
+    @GetMapping(path = "/api/v1/brands/health")
+    public String health() {
+        return "ok-man-4";
+    }
 }
