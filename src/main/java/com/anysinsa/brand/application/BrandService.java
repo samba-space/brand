@@ -2,6 +2,7 @@ package com.anysinsa.brand.application;
 
 import java.util.List;
 
+import com.anysinsa.brand.application.dto.BrandResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,5 +31,11 @@ public class BrandService {
 
     public List<Brand> findBrands() {
         return brandRepository.findAll();
+    }
+
+    public BrandResponseDTO findBrandById(Long id) {
+        Brand findBrand = brandRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("브랜드를 찾을 수 없습니다."));
+        return new BrandResponseDTO(findBrand.getId(), findBrand.getName());
     }
 }
