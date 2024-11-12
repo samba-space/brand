@@ -24,10 +24,10 @@ public class BrandController {
         return ResponseEntity.ok().body(brandService.findBrands());
     }
 
-    @GetMapping(path = "/api/v1/brands/{id}")
-    public ResponseEntity<BrandResponseDTO> findBrandById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(brandService.findBrandById(id));
-    }
+//    @GetMapping(path = "/api/v1/brands/{id}")
+//    public ResponseEntity<BrandResponseDTO> findBrandById(@PathVariable Long id) {
+//        return ResponseEntity.ok().body(brandService.findBrandById(id));
+//    }
 
     @GetMapping(path = "/api/v1/brands/health")
     public String health() {
