@@ -3,6 +3,7 @@ package com.anysinsa.brand.presentation.api;
 import java.util.List;
 
 import com.anysinsa.brand.application.dto.BrandResponseDTO;
+import io.micrometer.observation.annotation.Observed;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anysinsa.brand.application.BrandService;
 import com.anysinsa.brand.domain.Brand;
 
+@Observed
 @RestController
 public class BrandController {
     private final BrandService brandService;

@@ -26,6 +26,7 @@ configurations {
 
 ext {
     set('springCloudVersion', "2022.0.4")
+    set('grpcVersion', "1.42.1")
 }
 
 dependencyManagement {
@@ -35,9 +36,17 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.14.0')
-    implementation 'com.amazonaws:aws-xray-recorder-sdk-spring'
-    implementation 'com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.opentelemetry:opentelemetry-api'
+    // OpenTelemetry 관련 의존성 추가 및 수정
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.opentelemetry:opentelemetry-api'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    implementation 'io.opentelemetry:opentelemetry-sdk'
+    implementation 'io.opentelemetry:opentelemetry-sdk-trace'
+    implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
 
     implementation 'com.mysql:mysql-connector-j:8.0.33'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
