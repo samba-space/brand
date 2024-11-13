@@ -32,6 +32,18 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - echo Writing image definitions file...
       - printf '[{"name":"brand-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - echo Updating ECS task definition...
+      - TASK_DEFINITION=$(aws ecs describe-task-definition --task-definition brand-service-task --query 'taskDefinition' --output json)
+      - NEW_TASK_DEFINITION=$(echo $TASK_DEFINITION | jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy) | .containerDefinitions[0].image = "'$REPOSITORY_URI:$IMAGE_TAG'"')
+      - NEW_TASK_INFO=$(aws ecs register-task-definition --family brand-service-task --cli-input-json "$NEW_TASK_DEFINITION")
+      - NEW_REVISION=$(echo $NEW_TASK_INFO | jq '.taskDefinition.revision')
+      - echo New task definition revision is $NEW_REVISION
+      - echo Updating appspec.yml with new task definition...
+      - sed -i.bak -e "s|brand-service-task|brand-service-task:$NEW_REVISION|g" appspec.yml
+      - echo New task definition revision is $NEW_REVISION
+      - echo Updating appspec.yml with new task definition...
+      - TASK_DEFINITION_ARN=$(echo $NEW_TASK_INFO | jq -r '.taskDefinition.taskDefinitionArn')
+      - sed -i.bak -e "s|<TASK_DEFINITION>|$TASK_DEFINITION_ARN|g" appspec.yml
 artifacts:
   files:
     - appspec.yml
