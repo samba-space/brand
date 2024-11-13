@@ -10,9 +10,16 @@ management:
       endpoint: http://localhost:4317
       protocol: grpc
 otel:
+  sdk:
+    disabled: false
+  traces:
+    exporter: otlp
   exporter:
     otlp:
       endpoint: http://localhost:4317
+  instrumentation:
+    http:
+      url-exclusions: /health,/actuator/health
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
