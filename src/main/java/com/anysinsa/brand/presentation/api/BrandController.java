@@ -31,6 +31,6 @@ public class BrandController {
 
     @GetMapping(path = "/api/v1/brands/health")
     public String health() {
-        return "health-brand3";
+        return "health-brand4";
     }
 }
