@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anysinsa.brand.application.BrandService;
 import com.anysinsa.brand.domain.Brand;
 
-@Observed
 @RestController
 public class BrandController {
     private final BrandService brandService;
@@ -21,11 +20,13 @@ public class BrandController {
         this.brandService = brandService;
     }
 
+    @Observed
     @GetMapping(path = "/api/v1/brands")
     public ResponseEntity<List<Brand>> findBrands() {
         return ResponseEntity.ok().body(brandService.findBrands());
     }
 
+    @Observed
     @GetMapping(path = "/api/v1/brands/{id}")
     public ResponseEntity<BrandResponseDTO> findBrandById(@PathVariable Long id) {
         return ResponseEntity.ok().body(brandService.findBrandById(id));
