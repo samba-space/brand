@@ -1,45 +1,25 @@
 package com.anysinsa.common.handler;
 
-import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.ErrorResponse;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.HandlerMethodValidationException;
-
-import com.anysinsa.brand.application.exception.AlreadyBrandNameException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(AlreadyBrandNameException.class)
-    public ErrorResponse handleNotFoundException(AlreadyBrandNameException e) {
-        logger.error(e.getMessage(), e);
-        return ErrorResponse.create(e, HttpStatus.CONFLICT, e.getMessage());
-    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ProblemDetail> handleException(Exception e) {
+        logger.error("An unexpected error occurred: ", e);
 
-    @ExceptionHandler({MethodArgumentNotValidException.class})
-    public ErrorResponse handleArgumentNotValidationException(MethodArgumentNotValidException e) {
-        String errorMessages =
-                e.getBindingResult().getFieldErrors().stream()
-                        .map(
-                                error ->
-                                        String.join(
-                                                ": ", error.getField(), error.getDefaultMessage()))
-                        .collect(Collectors.joining("; "));
-        logger.error(errorMessages, e);
-        return ErrorResponse.create(e, e.getStatusCode(), errorMessages);
-    }
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        problemDetail.setTitle("An unexpected error occurred");
 
-    @ExceptionHandler(HandlerMethodValidationException.class)
-    public ErrorResponse handleMethodValidationException(HandlerMethodValidationException e) {
-        logger.error(e.getMessage(), e);
-        return ErrorResponse.create(e, e.getStatusCode(), e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetail);
     }
 }
