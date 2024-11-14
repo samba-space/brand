@@ -27,6 +27,12 @@ spring:
     url: jdbc:mysql://brand.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
     username: admin
     password: qudtjf12?!
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:

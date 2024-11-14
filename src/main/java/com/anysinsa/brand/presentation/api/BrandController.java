@@ -28,13 +28,13 @@ public class BrandController {
 
     @GetMapping(path = "/api/v1/brands")
     public ResponseEntity<List<Brand>> findBrands() {
-        logger.info("call BrandController::findBrands");
+        logger.info("findBrands");
         return ResponseEntity.ok().body(brandService.findBrands());
     }
 
     @GetMapping(path = "/api/v1/brands/{id}")
     public ResponseEntity<BrandResponseDTO> findBrandById(@PathVariable Long id) {
-        logger.info("call BrandController::findBrandById::{}", id);
+        logger.info("findBrandById::{}", id);
         return ResponseEntity.ok().body(brandService.findBrandById(id));
     }
 
