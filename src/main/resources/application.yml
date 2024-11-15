@@ -1,5 +1,9 @@
 server:
   port: 8082
+#  tomcat:
+#    max-threads: 500
+#    max-connections: 20000
+#    accept-count: 1000
 management:
   tracing:
     sampling:
@@ -10,6 +14,8 @@ management:
       endpoint: http://localhost:4317
       protocol: grpc
 otel:
+  service:
+    name: ${spring.application.name}
   exporter:
     otlp:
       endpoint: http://localhost:4317
