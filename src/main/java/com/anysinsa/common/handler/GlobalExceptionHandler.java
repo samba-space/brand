@@ -1,5 +1,7 @@
 package com.anysinsa.common.handler;
 
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ProblemDetail> handleException(Exception e) {
         logger.error("An unexpected error occurred: ", e);
+
+        Span span = Span.current();
+        span.setStatus(StatusCode.ERROR);
+        span.recordException(e);
 
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         problemDetail.setTitle("An unexpected error occurred");
