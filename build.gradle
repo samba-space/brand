@@ -36,9 +36,6 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'io.opentelemetry:opentelemetry-api'
     // OpenTelemetry 관련 의존성 추가 및 수정
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
