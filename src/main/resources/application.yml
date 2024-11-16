@@ -29,8 +29,10 @@ spring:
     console:
       enabled: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://brand.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
+    driver-class-name: io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:otel:mysql://brand.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
+#    url: jdbc:mysql://brand.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
     username: admin
     password: qudtjf12?!
     hikari:
@@ -54,10 +56,10 @@ spring:
 #    console:
 #      enabled: true
 #  datasource:
-#    driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:product;MODE=MySQL
-#    username: sa
-#    password:
+#    driver-class-name: io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver
+#    url: jdbc:otel:mysql://localhost:3306/test
+#    username: test
+#    password: test
 #  jpa:
 #    defer-datasource-initialization: true
 #    open-in-view: false
