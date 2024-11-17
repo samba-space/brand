@@ -21,7 +21,6 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
-    asciidoctorExt
 }
 
 ext {
@@ -43,8 +42,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
+//    implementation 'org.springframework.boot:spring-boot-starter-validation'
+//    implementation 'org.springframework.boot:spring-boot-starter-cache'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     // OpenTelemetry 의존성
@@ -65,16 +64,16 @@ dependencies {
     implementation 'io.opentelemetry.javaagent:opentelemetry-javaagent'
     // 데이터베이스 관련
     implementation 'com.mysql:mysql-connector-j'
-    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-    implementation 'com.blazebit:blaze-persistence-integration-querydsl-expressions-jakarta:1.6.11'
+//    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+//    implementation 'com.blazebit:blaze-persistence-integration-querydsl-expressions-jakarta:1.6.11'
 
     // 캐시
-    implementation 'com.github.ben-manes.caffeine:caffeine'
+//    implementation 'com.github.ben-manes.caffeine:caffeine'
 
     // 테스트 관련
-    runtimeOnly 'com.h2database:h2'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+//    runtimeOnly 'com.h2database:h2'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+//    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 }
