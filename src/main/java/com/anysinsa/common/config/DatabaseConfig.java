@@ -18,13 +18,25 @@ public class DatabaseConfig {
     public DataSource dataSource(
             @Value("${spring.datasource.url}") String url,
             @Value("${spring.datasource.username}") String username,
-            @Value("${spring.datasource.password}") String password) {
+            @Value("${spring.datasource.password}") String password,
+            @Value("${spring.datasource.hikari.maximum-pool-size}") int maximumPoolSize,
+            @Value("${spring.datasource.hikari.minimum-idle}") int minimumIdle,
+            @Value("${spring.datasource.hikari.connection-timeout}") long connectionTimeout,
+            @Value("${spring.datasource.hikari.idle-timeout}") long idleTimeout,
+            @Value("${spring.datasource.hikari.max-lifetime}") long maxLifetime) {
 
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(url);
         config.setUsername(username);
         config.setPassword(password);
         config.setDriverClassName("io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver");
+
+        // HikariCP 설정
+        config.setMaximumPoolSize(maximumPoolSize);
+        config.setMinimumIdle(minimumIdle);
+        config.setConnectionTimeout(connectionTimeout);
+        config.setIdleTimeout(idleTimeout);
+        config.setMaxLifetime(maxLifetime);
 
         // 원래 드라이버 설정
         config.addDataSourceProperty("opentelemetry.jdbc.wrapped-driver", "com.mysql.cj.jdbc.Driver");
