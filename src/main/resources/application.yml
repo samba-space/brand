@@ -1,14 +1,10 @@
 server:
   port: 8082
   tomcat:
-#    max-threads: 500
-#    max-connections: 20000
-#    accept-count: 1000
-##    connection-timeout: 30000  # 30초
-    max-threads: 300          # 500 -> 300 (태스크당 부하 고려)
-    max-connections: 10000    # 20000 -> 10000
-    accept-count: 500         # 1000 -> 500
-    connection-timeout: 5000  # 명시적으로 5초 설정
+    max-threads: 500
+    max-connections: 20000
+    accept-count: 1000
+#    connection-timeout: 30000  # 30초
 management:
   tracing:
     sampling:
@@ -41,15 +37,11 @@ spring:
     username: admin
     password: qudtjf12?!
     hikari:
-#      maximum-pool-size: 100
-#      minimum-idle: 10
-#      connection-timeout: 30000
-#      idle-timeout: 600000
-#      max-lifetime: 1800000
-      maximum-pool-size: 75    # 100 -> 75 (스레드 수 대비)
-      minimum-idle: 20         # 10 -> 20 (초기 부하 대비)
-      connection-timeout: 5000 # 30000 -> 5000
-      idle-timeout: 300000     # 600000 -> 300000
+      maximum-pool-size: 100
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
