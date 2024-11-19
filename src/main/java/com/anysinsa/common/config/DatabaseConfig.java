@@ -22,8 +22,8 @@ public class DatabaseConfig {
             @Value("${spring.datasource.hikari.maximum-pool-size}") int maximumPoolSize,
             @Value("${spring.datasource.hikari.minimum-idle}") int minimumIdle,
             @Value("${spring.datasource.hikari.connection-timeout}") long connectionTimeout,
-            @Value("${spring.datasource.hikari.idle-timeout}") long idleTimeout,
-            @Value("${spring.datasource.hikari.max-lifetime}") long maxLifetime) {
+            @Value("${spring.datasource.hikari.idle-timeout}") long idleTimeout) {
+//            @Value("${spring.datasource.hikari.max-lifetime}") long maxLifetime) {
 
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(url);
@@ -36,7 +36,7 @@ public class DatabaseConfig {
         config.setMinimumIdle(minimumIdle);
         config.setConnectionTimeout(connectionTimeout);
         config.setIdleTimeout(idleTimeout);
-        config.setMaxLifetime(maxLifetime);
+//        config.setMaxLifetime(maxLifetime);
 
         // 원래 드라이버 설정
         config.addDataSourceProperty("opentelemetry.jdbc.wrapped-driver", "com.mysql.cj.jdbc.Driver");
