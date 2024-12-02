@@ -32,7 +32,7 @@ spring:
   datasource:
     driver-class-name: io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver
 #    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:otel:mysql://anysinsa-cluster.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/anysisna
+    url: jdbc:otel:mysql://anysinsa-cluster.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/anysinsa
 #    url: jdbc:mysql://brand.cluster-ct0gsiiwy4xd.ap-northeast-2.rds.amazonaws.com:3306/brand
     username: admin
     password: qudtjf12?!
