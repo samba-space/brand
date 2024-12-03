@@ -40,6 +40,6 @@ public class BrandController {
 
     @GetMapping(path = "/api/v1/brands/health")
     public String health() {
-        return "brand-health";
+        return "brand-health-changed";
     }
 }
