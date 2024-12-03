@@ -8,4 +8,4 @@ Resources:
           ContainerName: "brand-container"
           ContainerPort: 8082
 Hooks:
-  - AfterAllowTestTraffic: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
+  - BeforeAllowTraffic: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
