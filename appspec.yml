@@ -8,18 +8,8 @@ Resources:
           ContainerName: "brand-container"
           ContainerPort: 8082
 Hooks:
-  - BeforeInstall:
-      - location: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
-        timeout: 300
-  - AfterInstall:
-      - location: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
-        timeout: 300
-  - AfterAllowTestTraffic:
-      - location: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
-        timeout: 300
-  - BeforeAllowTraffic:
-      - location: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
-        timeout: 300
-  - AfterAllowTraffic:
-      - location: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
-        timeout: 300
+  BeforeInstall: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
+  AfterInstall: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
+  AfterAllowTestTraffic: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
+  BeforeAllowTraffic: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
+  AfterAllowTraffic: "arn:aws:lambda:ap-northeast-2:026090537156:function:brandAPITestFunction"
