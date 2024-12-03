@@ -28,6 +28,7 @@ public class BrandController {
 
     @GetMapping(path = "/api/v1/brands")
     public ResponseEntity<List<Brand>> findBrands() {
+
         logger.info("findBrands");
         return ResponseEntity.ok().body(brandService.findBrands());
     }
